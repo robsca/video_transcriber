@@ -8,7 +8,7 @@ source transcript/bin/activate
 pip3 install moviepy
 pip3 install pyvis
 pip3 install streamlit
+pip3 install speechrecognition
 python3 main.py
-
 
 ```
