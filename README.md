@@ -9,6 +9,7 @@ pip3 install moviepy
 pip3 install pyvis
 pip3 install streamlit
 pip3 install speechrecognition
+pip3 install pydub
 python3 main.py
 
 ```
