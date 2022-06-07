@@ -17,11 +17,10 @@ video_file = st.sidebar.file_uploader("Choose a video file", type=["mp4", "mov"]
 url = st.sidebar.text_input('Insert URL')
 txt = st.text_area('Transcript')
 if url:
-    summary = summarizer_from_url(url)
-    st.text_area('Summary', summary)
+    summary, context = summarizer_from_url(url)
 
 elif txt:
-    summary = summarizer(txt)
+    summary, context = summarizer(txt)
     st.text_area('Summary', summary)
 
 elif video_file is not None:
@@ -39,10 +38,19 @@ elif video_file is not None:
         transcript = Video_to_Text('video.mp4').transcript
         st.text_area('Transcript', transcript, height=500)
         st.success('Done!')
-        st.text_area('Summary', summarizer(transcript))
+        summary, context = summarizer(transcript)
 else:
     st.write('No file selected')
 
+try:
+    st.text_area('Summary', summary)
+    with st.expander('Ask me a question'):
+        question = st.text_input('Question')
+        if question:
+            answer = question_answering(summary, question)
+            st.text_area('Answer', answer['answer'])
+except:
+    st.write('Problem')
 
 if '__main__' == __name__:
     # run only once
