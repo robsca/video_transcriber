@@ -65,7 +65,7 @@ def summarizer(ARTICLE):
     res = summarizer(chunks, max_length=120, min_length=30, do_sample=False)
     ' '.join([summ['summary_text'] for summ in res])
     text = ' '.join([summ['summary_text'] for summ in res])
-    return text
+    return text, ARTICLE
 
 def sentiment_analysis(text):
     sentiment_analysis = pipeline(model="finiteautomata/bertweet-base-sentiment-analysis")
