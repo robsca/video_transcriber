@@ -12,6 +12,7 @@ pip3 install speechrecognition
 pip3 install pydub
 pip3 install transformers
 pip3 install plotly
+pip3 install torch
 
 python3 main.py
 
