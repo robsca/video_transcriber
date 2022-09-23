@@ -1,4 +1,5 @@
 import streamlit as st
+st.set_page_config(page_title="Mario", page_icon=":smiley:", layout="wide", initial_sidebar_state="expanded")
 from text import Video_to_Text
 import streamlit.components.v1 as components  # Import Streamlit
 import ssl
@@ -27,11 +28,11 @@ try:
         st.text_area('Summary', summary, key = 'summary')
 
     elif video_file is not None:
-        # save file
-        with open("video.mp4", "wb") as f:
-            f.write(video_file.read())
+        '''
+        read file missing
+        '''
         # clip
-        clip = VideoFileClip("video.mp4")
+        clip = VideoFileClip(video_file)
         duration = clip.duration
         print(duration)
         st.sidebar.video(video_file)

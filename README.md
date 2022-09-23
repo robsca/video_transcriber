@@ -5,6 +5,7 @@ SETUP:
 ```
 virtualenv transcript -p python3
 source transcript/bin/activate
+pip3 install --upgrade pip
 pip3 install moviepy
 pip3 install pyvis
 pip3 install streamlit
@@ -13,6 +14,7 @@ pip3 install pydub
 pip3 install transformers
 pip3 install plotly
 pip3 install torch
+pip3 install bs4
 
 python3 main.py
 
